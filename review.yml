@@ -1,0 +1,116 @@
+aid: bolt-eu
+name: Bolt
+review:
+  question: Does Bolt expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-11'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Bolt's documented developer surface
+    (the Food, Stores, and Delivery partner APIs at developer.bolt.eu) is
+    request/response REST over HTTPS plus outbound HTTP webhooks that Bolt
+    POSTs to partner-hosted endpoints (sendNewOrder, sendCancelOrder,
+    sendOrderUpdate, sendProviderStatus, sendCourierDetails,
+    sendDeductionEvent, courierPickedUpOrder). Webhooks are plain HTTP
+    callbacks, not a server-push transport on Bolt's own API - there is no
+    WebSocket or SSE surface to model.
+findings:
+  summary: |
+    Bolt (bolt.eu, the Estonian mobility super-app - not bolt.com, the US
+    checkout company) does not publish a documented public WebSocket API.
+    It does not publish a public ride-booking API at all: Bolt's own support
+    article states "Unfortunately, we don't offer any public or private APIs
+    at the moment" in answer to rider/ride-hailing API requests, and the
+    Bolt for Business Ride Booker is a web interface, not an API. The real,
+    documented developer surface lives at developer.bolt.eu and is limited
+    to the delivery side of the platform: the Bolt Food API (restaurant POS
+    integration), Bolt Stores API (grocery/retail warehouse and PIM
+    integration), and the combined Bolt Delivery API, all served from
+    https://node.bolt.eu/delivery-provider-pos as JSON-over-HTTPS POST
+    endpoints with HMAC-SHA256 request signing (x-external-integrator-id +
+    x-server-authorization-hmac-sha256 headers). Access is partner-gated -
+    integrator IDs and signing secrets are issued by Bolt when a partner
+    test account is created. Streaming/eventing is delivered exclusively as
+    outbound HTTP webhooks from Bolt to partner-hosted endpoints. A fleet
+    API exists behind the Bolt Fleet Portal (credentials generated under
+    Settings > API), but its endpoints are not publicly documented, so
+    nothing was modeled for it.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://node.bolt.eu/delivery-provider-pos
+      documented: true
+      note: All documented Food/Stores/Delivery operations are HTTPS POST (RPC-style paths under /genericClient and /pim/v1).
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Bolt POSTs order/courier/provider lifecycle events to partner-hosted endpoints, authenticated with Basic auth or a partner identity server issuing bearer tokens. HTTP callbacks, not WebSocket.
+    - protocol: SFTP
+      scheme: sftp
+      documented: true
+      note: Simplified warehouse/PIM catalog integration by uploading JSON or CSV files to Bolt's SFTP server. Out of scope for AsyncAPI.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint appears anywhere on developer.bolt.eu or in Bolt support documentation as of the review date.
+  endpointsConfirmedRest:
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/pushMenu
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/getMenu
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/updateMenuItemAvailability
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/acceptOrder
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/rejectOrder
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/markOrderAsReadyForPickup
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/markOrderAsPickedUp
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/markOrderAsDelivered
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/getOrderBasket
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/startAcceptingOrders
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/pauseOrders
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/updateProviderSchedule
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/updateMenuQuantity
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/waiter/createOrder
+    - POST https://node.bolt.eu/delivery-provider-pos/genericClient/waiter/finalizeOrder
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/products/import/create
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/products/import/edit
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/products/prices/import
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/products/discount/prices/import
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/categoryTree/get
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/categoryTree/set
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/menu/drafts/create
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/menu/drafts/publish
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/option/upsert
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/optionGroup/upsert
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/fee/list
+    - POST https://node.bolt.eu/delivery-provider-pos/pim/v1/fee/update
+sources:
+  - url: https://developer.bolt.eu/
+    type: Documentation
+    note: Bolt developer portal (Redocly SPA) hosting the Food, Stores, Delivery, and Self Service docs.
+  - url: https://developer.bolt.eu/food/main/
+    type: APIReference
+    note: BoltFoodAPI - 17 POST paths plus 6 outbound webhooks; server https://node.bolt.eu/delivery-provider-pos.
+  - url: https://developer.bolt.eu/stores/main/
+    type: APIReference
+    note: BoltStoresAPI - 37 POST paths plus 6 outbound webhooks covering warehouse and PIM integration.
+  - url: https://developer.bolt.eu/delivery/main/
+    type: APIReference
+    note: BoltDeliveryAPI - combined restaurant + grocery spec, 43 POST paths plus 5 outbound webhooks.
+  - url: https://bolt.eu/en/support/articles/360017256060/
+    type: Documentation
+    note: Official statement on rider-facing APIs - "Unfortunately, we don't offer any public or private APIs at the moment."
+  - url: https://bolt.eu/en/support/articles/40343/
+    type: Documentation
+    note: Ride Booker for Bolt Business is a web interface for booking rides, not an API.
+  - url: https://fleets.bolt.eu/
+    type: Portal
+    note: Fleet Portal where fleet partners generate API credentials (Settings > API); endpoints not publicly documented.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on any documented Bolt API. Event
+    delivery is exclusively outbound HTTP webhooks from Bolt to
+    partner-hosted endpoints, which are already captured in the webhooks
+    section of the OpenAPI documents in openapi/. No AsyncAPI document was
+    created because there is no server-push transport (WebSocket or SSE) on
+    Bolt's own API to model.

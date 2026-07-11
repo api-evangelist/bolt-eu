@@ -1,0 +1,1214 @@
+{
+  "info": {
+    "_postman_id": "d6e1bfdd-5621-4248-8712-3789ee097605",
+    "name": "Bolt API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44960784"
+  },
+  "item": [
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Create Category tree",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region_id\": {{region_id}},\n  \"categories\": [\n    {\n      \"external_id\": \"MainCat\",\n      \"name\": {\n        \"en-US\": \"Main category\"\n      },\n      \"sub_categories\": [\n        {\n          \"external_id\": \"SubCat\",\n          \"name\": {\n            \"en-US\": \"Sub Category\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/categoryTree/set",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "categoryTree",
+                "set"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve Category tree",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/categoryTree/get",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "categoryTree",
+                "get"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Apply pending product import",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/import/apply",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "import",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel pending product import",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/import/cancel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "import",
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create/Override Products",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "var secret = pm.collectionVariables.get(\"secret_key\");",
+                  "var body = pm.collectionVariables.replaceIn(pm.request.body.toString());",
+                  "var key = CryptoJS.HmacSHA256(body, secret);",
+                  "var base64key = key.toString(CryptoJS.enc.Base64);",
+                  "pm.collectionVariables.set(\"computed_hash\", base64key);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}},\n    \"products\": [\n        {\n            \"sku\": \"2723387725728738163327TEST\",\n            \"name\": {\n                \"en-US\": \"Welcome mylord\",\n                \"pl-PL\": \"Witam milordzie\"\n            },\n            \"description\": {\n                \"en-US\": \"\",\n                \"pl-PL\": \"PL opis\"\n            },\n            \"categories\": [\n                {\n                    \"category\": \"Dom\",\n                    \"sub_category\": \"Relaks i nastrój\"\n                }\n            ],\n            \"barcodes\": [\n                \"11111111111111\"\n            ],\n            \"image_url\": \"https://i1.memy.pl/obrazki/2205959069_witaj.jpg\",\n            \"weight_gross_gram\": \"132\",\n            \"product_volume_cm3\": 288.0,\n            \"product_length_cm\": 5.0,\n            \"product_width_cm\": 5.0,\n            \"product_height_cm\": 18.0,\n            \"is_measured\": false,\n            \"order_quantity_limit\": 10,\n            \"product_main_measure\": {\n                \"unit\": \"piece\",\n                \"value\": \"1\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/import/create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "import",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delist Products",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "var secret = pm.collectionVariables.get(\"secret_key\");",
+                  "var body = pm.collectionVariables.replaceIn(pm.request.body.toString());",
+                  "var key = CryptoJS.HmacSHA256(body, secret);",
+                  "var base64key = key.toString(CryptoJS.enc.Base64);",
+                  "pm.collectionVariables.set(\"computed_hash\", base64key);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}},\n    \"skus\": [\"2723387725728738163327TEST\"]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/delist",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "delist"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Partially update products",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "var secret = pm.collectionVariables.get(\"secret_key\");",
+                  "var body = pm.collectionVariables.replaceIn(pm.request.body.toString());",
+                  "var key = CryptoJS.HmacSHA256(body, secret);",
+                  "var base64key = key.toString(CryptoJS.enc.Base64);",
+                  "pm.collectionVariables.set(\"computed_hash\", base64key);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region_id\": {{region_id}},\n  \"products\": [\n    {\n      \"sku\": \"2723387725728738163327TEST\",\n      \"name\": {\n        \"en-US\": \"Some product name\"\n      },\n      \"description\": {\n        \"en-US\": \"POSTMAN TEST\"\n      },\n      \"category_external_ids\": [\n        \"SubCat\"\n      ],\n      \"barcodes\": [\n        \"123456789\"\n      ],\n      \"image_url\": \"https://some.domain.com/images/product/image.jpg\",\n      \"weight_gross_gram\": \"132\",\n      \"product_volume_cm3\": 288.0,\n      \"product_length_cm\": 4.0,\n      \"product_width_cm\": 4.0,\n      \"product_height_cm\": 18.0,\n      \"is_measured\": false,\n      \"order_quantity_limit\": 10,\n      \"product_main_measure\": {\n        \"unit\": \"piece\",\n        \"value\": \"1\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/import/edit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "import",
+                "edit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve product import status",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/import/status/retrieve",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "import",
+                "status",
+                "retrieve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update product image",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "var secret = pm.collectionVariables.get(\"secret_key\");",
+                  "var body = pm.collectionVariables.replaceIn(pm.request.body.toString());",
+                  "var key = CryptoJS.HmacSHA256(body, secret);",
+                  "var base64key = key.toString(CryptoJS.enc.Base64);",
+                  "pm.collectionVariables.set(\"computed_hash\", base64key);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region_id\": {{region_id}},\n  \"products\": [\n    {\n      \"sku\": \"2723387725728738163327TEST\",\n      \"image_url\": \"https://i1.memy.pl/obrazki/2205959069_witaj.jpg\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/import/edit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "import",
+                "edit"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Pricing",
+      "item": [
+        {
+          "name": "Disocunts",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}},\n    \"provider_ids\": [\n    \"{{provider_id}}\"\n    ],\n    \"currency\": \"EUR\",\n    \"discount_price_list\": [\n        {\n            \"price_type\": \"loyal_user\",\n            \"active_from\": 1765555624,\n            \"active_to\": 1775655624,\n            \"skus\": [\n                {\n                    \"sku\": \"2723387725728738163327TEST\",\n                    \"price\": 0.5,\n                    \"price_measure_unit\": \"piece\"\n                }\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/discount/prices/import",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "discount",
+                "prices",
+                "import"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prices",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region_id\": {{region_id}},\n  \"price_list\": {\n    \"currency\": \"EUR\",\n    \"skus\": [\n      {\n        \"sku\": \"2723387725728738163327TEST\",\n        \"base_selling_price\": 1.0000,\n        \"price_measure_unit\": \"piece\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/products/prices/import",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "products",
+                "prices",
+                "import"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Fees",
+      "item": [
+        {
+          "name": "List Fees",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/fee/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "fee",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Warehouse",
+      "item": [
+        {
+          "name": "Stock",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider_id\": \"{{provider_id}}\",\n  \"sku_quantities\": [\n    {\n      \"sku\": \"2723387725728738163327TEST\",\n      \"selling_unit\": \"piece\",\n      \"quantity\": 0\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/genericClient/updateMenuQuantity",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "genericClient",
+                "updateMenuQuantity"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Menu",
+      "item": [
+        {
+          "name": "Create menu draft",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/menu/drafts/create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "menu",
+                "drafts",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Publish menu draft",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/menu/drafts/publish",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "menu",
+                "drafts",
+                "publish"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve menu draft state",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/menu/drafts/state/retrieve",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "menu",
+                "drafts",
+                "state",
+                "retrieve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List menu publications",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/menu/publish/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "menu",
+                "publish",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order Integration",
+      "item": [
+        {
+          "name": "Retrieve Order basket",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider_id\": \"{{provider_id}}\",\n  \"order_id\": 275436258\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/genericClient/getOrderBasket",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "genericClient",
+                "getOrderBasket"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Provider Integration",
+      "item": [
+        {
+          "name": "Pause Orders",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"provider_id\": \"{{provider_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/genericClient/pauseOrders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "genericClient",
+                "pauseOrders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List menu publications",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-external-integrator-id",
+                "value": "{{integrator_id}}",
+                "type": "text"
+              },
+              {
+                "key": "x-server-authorization-hmac-sha256",
+                "value": "{{computed_hash}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"region_id\": {{region_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/delivery-provider-pos/pim/v1/menu/drafts/state/retrieve",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "delivery-provider-pos",
+                "pim",
+                "v1",
+                "menu",
+                "drafts",
+                "state",
+                "retrieve"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          "var secret = pm.collectionVariables.get(\"secret_key\");",
+          "var body = pm.collectionVariables.replaceIn(pm.request.body.toString());",
+          "var key = CryptoJS.HmacSHA256(body, secret);",
+          "var base64key = key.toString(CryptoJS.enc.Base64);",
+          "pm.collectionVariables.set(\"computed_hash\", base64key);",
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "integrator_id",
+      "value": "INTEGRATOR_ID"
+    },
+    {
+      "key": "secret_key",
+      "value": "SECRET_KEY"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://node.bolt.eu"
+    },
+    {
+      "key": "computed_hash",
+      "value": ""
+    },
+    {
+      "key": "region_id",
+      "value": "REGION_ID"
+    },
+    {
+      "key": "provider_id",
+      "value": "PROVIDER_ID"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+aid: bolt-eu
+name: Bolt Plans and Pricing
+description: |
+  Bolt (bolt.eu) does not sell API access as a product - there is no
+  metered developer pricing, no API subscription tiers, and no public
+  rate card. The commercial model behind each of its partner-gated API
+  surfaces is the underlying marketplace relationship.
+url: https://bolt.eu/en/business/
+date: '2026-07-11'
+plans:
+- name: Bolt Food / Stores / Delivery partner integration
+  description: |
+    The Food, Stores, and Delivery APIs at developer.bolt.eu carry no
+    separate API fee. They are available to restaurants, grocery stores,
+    and POS/integrator vendors that have a Bolt Food or Bolt Market
+    partnership; Bolt issues an integrator ID and HMAC signing secret when
+    a partner test account is created. Bolt's revenue comes from the
+    commission it takes on marketplace orders, not from API usage.
+  price: No API fee - marketplace commission on orders per partner agreement
+  access: Partner-gated (contact Bolt to enable; integrator credentials issued by Bolt)
+  url: https://developer.bolt.eu/
+- name: Bolt Business (ride booking for companies)
+  description: |
+    Bolt for Business is free to set up - no setup fee and no recurring
+    subscription. Companies pay for the rides their employees and guests
+    take, plus normal trip-related charges (cancellation fees, waiting
+    fees, tolls, airport charges, local taxes), with consolidated monthly
+    invoicing. Ride booking is via the Bolt app work profile and the Ride
+    Booker web tool - Bolt offers no public ride-booking API.
+  price: 'Free platform - pay per ride taken'
+  access: Self-service signup for companies; web and app only, no API
+  url: https://bolt.eu/en/business/
+- name: Bolt Fleet Portal API
+  description: |
+    Fleet partners operating drivers on the Bolt platform can generate API
+    credentials (Client ID and Secret) under Settings > API in the Fleet
+    Portal at no charge. Endpoints are not publicly documented; the fleet
+    relationship itself is commission-based on rides.
+  price: No API fee - fleet commission per partner agreement
+  access: Fleet-partner-gated (credentials generated in the Fleet Portal)
+  url: https://fleets.bolt.eu/
+sources:
+- url: https://bolt.eu/en/business/
+  note: Bolt for Business - free account, pay for rides taken.
+- url: https://developer.bolt.eu/
+  note: Partner-gated developer portal; access enabled by Bolt Support.
+- url: https://fleets.bolt.eu/
+  note: Fleet Portal where API credentials are generated.

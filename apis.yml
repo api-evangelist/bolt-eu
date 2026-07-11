@@ -1,0 +1,131 @@
+aid: bolt-eu
+url: https://raw.githubusercontent.com/api-evangelist/bolt-eu/refs/heads/main/apis.yml
+name: Bolt
+kind: company
+description: Bolt (bolt.eu) is the Estonian mobility super-app operating ride-hailing,
+  ride booking, scooter and e-bike rentals, car-sharing, and food and grocery delivery
+  across 50+ countries in Europe and Africa. This is NOT Bolt the US checkout/payments
+  company (bolt.com). Bolt does not offer a public ride-booking API - the company
+  states it has no public or private APIs for ride-hailing, and business ride booking
+  happens through the Ride Booker web tool and private travel-platform partnerships.
+  Its documented developer surface at developer.bolt.eu is partner-gated and covers
+  the delivery side of the platform - Food, Stores, and Delivery APIs for POS, menu,
+  order, warehouse, and PIM integration - plus a fleet API whose credentials are
+  issued in the Fleet Portal but whose endpoints are not publicly documented.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Ride Booking
+- Ride Hailing
+- Mobility
+- Transportation
+- Food Delivery
+- Micromobility
+- Delivery
+- Super App
+created: '2026-07-11'
+modified: '2026-07-11'
+specificationVersion: '0.19'
+apis:
+- aid: bolt-eu:bolt-eu-food-api
+  name: Bolt Food API
+  tags:
+  - Food Delivery
+  - POS
+  - Restaurants
+  - Orders
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.bolt.eu/food/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  properties:
+  - url: https://developer.bolt.eu/food/main/
+    type: Documentation
+  - url: openapi/bolt-eu-food-openapi.yml
+    type: OpenAPI
+  - url: collections/bolt-eu.postman_collection.json
+    type: PostmanCollection
+  description: Partner-gated API for restaurants integrating point-of-sale systems
+    with the Bolt Food delivery application - push and manage menus, accept, reject,
+    and fulfill orders, handle dine-in orders created by waiters, and control store
+    availability, with Bolt calling partner-hosted webhooks for order, courier, and
+    deduction events. Access requires an integrator ID and HMAC signing secret issued
+    by Bolt when a partner test account is created.
+- aid: bolt-eu:bolt-eu-stores-api
+  name: Bolt Stores API
+  tags:
+  - Grocery
+  - Retail
+  - PIM
+  - Warehouse
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.bolt.eu/stores/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  properties:
+  - url: https://developer.bolt.eu/stores/main/
+    type: Documentation
+  - url: openapi/bolt-eu-stores-openapi.yml
+    type: OpenAPI
+  - url: collections/bolt-eu.postman_collection.json
+    type: PostmanCollection
+  description: Partner-gated API for grocery and retail stores integrating warehouses
+    and product information management (PIM) systems with Bolt Food / Bolt Market -
+    import products, prices, and discount price lists, manage category trees, layouts,
+    options, fees, timetables, and menu publishing, update stock, and fulfill orders
+    picked by item. SFTP-based catalog upload is also offered as a simplified path.
+    Access requires an integrator ID and HMAC signing secret issued by Bolt.
+- aid: bolt-eu:bolt-eu-delivery-api
+  name: Bolt Delivery API
+  tags:
+  - Delivery
+  - POS
+  - Orders
+  - Couriers
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.bolt.eu/delivery/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  properties:
+  - url: https://developer.bolt.eu/delivery/main/
+    type: Documentation
+  - url: openapi/bolt-eu-delivery-openapi.yml
+    type: OpenAPI
+  - url: collections/bolt-eu.postman_collection.json
+    type: PostmanCollection
+  description: Combined delivery-provider surface covering both the restaurant (Bolt
+    Food) and grocery (Bolt Market) sides of the platform - menu integration, order
+    acceptance and fulfillment, dine-in orders, provider scheduling, warehouse stock,
+    and the full PIM suite, with Bolt calling partner-hosted webhooks for order and
+    courier lifecycle events. Partner-gated with HMAC request signing.
+- aid: bolt-eu:bolt-eu-fleet-api
+  name: Bolt Fleet API
+  tags:
+  - Fleet Management
+  - Drivers
+  - Ride Hailing
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://fleets.bolt.eu/
+  properties:
+  - url: https://fleets.bolt.eu/
+    type: Portal
+  - url: https://bolt.eu/en/support/articles/360012344613/
+    type: Documentation
+  description: Partner-gated fleet integration for companies operating driver fleets
+    on the Bolt ride-hailing platform. Fleet owners can generate API credentials (Client
+    ID and Secret) under Settings > API in the Bolt Fleet Portal, but Bolt publishes
+    no public endpoint documentation for this surface - integration details are shared
+    with approved fleet partners directly. No endpoints are modeled here because none
+    are publicly documented.
+common:
+- type: GitHubOrganization
+  url: https://github.com/bolteu
+- type: LinkedIn
+  url: https://www.linkedin.com/company/bolt-eu
+- type: Website
+  url: https://bolt.eu
+- type: Documentation
+  url: https://developer.bolt.eu/
+- type: Plans
+  url: plans/bolt-eu-plans-pricing.yml
+- type: Blog
+  url: https://bolt.eu/en/blog/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

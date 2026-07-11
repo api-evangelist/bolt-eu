@@ -1,0 +1,765 @@
+openapi: 3.1.0
+info:
+  title: Bolt Stores API
+  version: '1.0'
+  description: 'Partner API for grocery and retail stores integrating warehouses and product information
+    management (PIM) systems with Bolt Food / Bolt Market delivery - import and edit product catalogs,
+    prices, and discount price lists, manage category trees, section layouts, options, fees, timetables,
+    menu drafts and publishing, update stock quantities, and fulfill orders picked by item. Bolt also
+    calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an
+    integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is
+    an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint
+    paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while
+    request and response schemas are summarized rather than reproduced in full.'
+  contact:
+    url: https://developer.bolt.eu/
+  license:
+    name: Bolt Terms and Conditions
+    url: https://bolt.eu/en/legal/
+  x-endpoints-modeled: false
+  x-schemas-summarized: true
+  x-source: 'https://developer.bolt.eu/stores/main/ (upstream spec: https://developer.bolt.eu/versions/98.0.0/docs/stores/main.yaml)'
+externalDocs:
+  description: Bolt Stores API reference on the Bolt developer portal
+  url: https://developer.bolt.eu/stores/main/
+servers:
+- url: https://node.bolt.eu/delivery-provider-pos
+  description: Production
+security:
+- boltHmacSignature: []
+paths:
+  /genericClient/getMenu:
+    post:
+      operationId: genericClient-getMenu
+      summary: Get menu
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/getMenu).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/acceptOrder:
+    post:
+      operationId: genericClient-acceptOrder
+      summary: Accept order
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/acceptOrder).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/rejectOrder:
+    post:
+      operationId: genericClient-rejectOrder
+      summary: Reject order
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/rejectOrder).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/markOrderAsReadyForPickup:
+    post:
+      operationId: genericClient-markOrderAsReadyForPickup
+      summary: Mark order as ready for pickup
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/markOrderAsReadyForPickup).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/markOrderAsPickedUp:
+    post:
+      operationId: genericClient-markOrderAsPickedUp
+      summary: Mark order as picked up
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/markOrderAsPickedUp).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/markOrderWithItemsAsReadyForPickUp:
+    post:
+      operationId: genericClient-markOrderWithItemsAsReadyForPickUp
+      summary: Mark order with items as ready for pick up
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/markOrderWithItemsAsReadyForPickUp).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/v2/markOrderWithItemsAsReadyForPickup:
+    post:
+      operationId: genericClient-v2-markOrderWithItemsAsReadyForPickup
+      summary: Mark order with items as ready for pickup
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/v2/markOrderWithItemsAsReadyForPickup).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/markOrderAsDelivered:
+    post:
+      operationId: genericClient-markOrderAsDelivered
+      summary: Mark order as delivered
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/markOrderAsDelivered).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/getOrderBasket:
+    post:
+      operationId: genericClient-getOrderBasket
+      summary: Get order basket
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/getOrderBasket).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/startAcceptingOrders:
+    post:
+      operationId: genericClient-startAcceptingOrders
+      summary: Start accepting orders
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/startAcceptingOrders).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/pauseOrders:
+    post:
+      operationId: genericClient-pauseOrders
+      summary: Pause orders
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/pauseOrders).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/updateProviderSchedule:
+    post:
+      operationId: genericClient-updateProviderSchedule
+      summary: Update provider schedule
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/updateProviderSchedule).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /genericClient/updateMenuQuantity:
+    post:
+      operationId: genericClient-updateMenuQuantity
+      summary: Update menu quantity
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/updateMenuQuantity).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/products/import/create:
+    post:
+      operationId: pim-v1-products-import-create
+      summary: 'PIM: products import create'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/products/import/create).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/products/import/edit:
+    post:
+      operationId: pim-v1-products-import-edit
+      summary: 'PIM: products import edit'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/products/import/edit).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/products/import/status/retrieve:
+    post:
+      operationId: pim-v1-products-import-status-retrieve
+      summary: 'PIM: products import status retrieve'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/products/import/status/retrieve).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/products/import/apply:
+    post:
+      operationId: pim-v1-products-import-apply
+      summary: 'PIM: products import apply'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/products/import/apply).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/products/import/cancel:
+    post:
+      operationId: pim-v1-products-import-cancel
+      summary: 'PIM: products import cancel'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/products/import/cancel).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/timetable/createInBatch:
+    post:
+      operationId: pim-v1-timetable-createInBatch
+      summary: 'PIM: timetable create in batch'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/timetable/createInBatch).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/timetable/list:
+    post:
+      operationId: pim-v1-timetable-list
+      summary: 'PIM: timetable list'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/timetable/list).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/products/delist:
+    post:
+      operationId: pim-v1-products-delist
+      summary: 'PIM: products delist'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/products/delist).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/menu/drafts/create:
+    post:
+      operationId: pim-v1-menu-drafts-create
+      summary: 'PIM: menu drafts create'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/menu/drafts/create).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/menu/drafts/state/retrieve:
+    post:
+      operationId: pim-v1-menu-drafts-state-retrieve
+      summary: 'PIM: menu drafts state retrieve'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/menu/drafts/state/retrieve).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/menu/drafts/reject:
+    post:
+      operationId: pim-v1-menu-drafts-reject
+      summary: 'PIM: menu drafts reject'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/menu/drafts/reject).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/menu/drafts/publish:
+    post:
+      operationId: pim-v1-menu-drafts-publish
+      summary: 'PIM: menu drafts publish'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/menu/drafts/publish).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/menu/publish/list:
+    post:
+      operationId: pim-v1-menu-publish-list
+      summary: 'PIM: menu publish list'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/menu/publish/list).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/menu/publish/cancel:
+    post:
+      operationId: pim-v1-menu-publish-cancel
+      summary: 'PIM: menu publish cancel'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/menu/publish/cancel).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/products/prices/import:
+    post:
+      operationId: pim-v1-products-prices-import
+      summary: 'PIM: products prices import'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/products/prices/import).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/products/discount/prices/import:
+    post:
+      operationId: pim-v1-products-discount-prices-import
+      summary: 'PIM: products discount prices import'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/products/discount/prices/import).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/layout/set:
+    post:
+      operationId: pim-v1-layout-set
+      summary: 'PIM: layout set'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/layout/set).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/categoryTree/get:
+    post:
+      operationId: pim-v1-categoryTree-get
+      summary: 'PIM: category tree get'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/categoryTree/get).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/categoryTree/set:
+    post:
+      operationId: pim-v1-categoryTree-set
+      summary: 'PIM: category tree set'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/categoryTree/set).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/category/rearrange:
+    post:
+      operationId: pim-v1-category-rearrange
+      summary: 'PIM: category rearrange'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/category/rearrange).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/category/products/set:
+    post:
+      operationId: pim-v1-category-products-set
+      summary: 'PIM: category products set'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/category/products/set).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/fee/list:
+    post:
+      operationId: pim-v1-fee-list
+      summary: 'PIM: fee list'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/fee/list).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /pim/v1/fee/update:
+    post:
+      operationId: pim-v1-fee-update
+      summary: 'PIM: fee update'
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/pim/v1/fee/update).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+  /validateLoyaltyCard:
+    post:
+      operationId: validateLoyaltyCard
+      summary: Validate loyalty card
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/validateLoyaltyCard).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+webhooks:
+  sendNewOrder:
+    post:
+      operationId: webhook-sendNewOrder
+      summary: Bolt sends a new order to the partner-hosted endpoint for acceptance.
+      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
+        https://developer.bolt.eu/stores/main/.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Partner acknowledges the event.
+  sendCancelOrder:
+    post:
+      operationId: webhook-sendCancelOrder
+      summary: Bolt notifies the partner-hosted endpoint that an order was cancelled.
+      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
+        https://developer.bolt.eu/stores/main/.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Partner acknowledges the event.
+  sendOrderUpdate:
+    post:
+      operationId: webhook-sendOrderUpdate
+      summary: Bolt sends order state updates to the partner-hosted endpoint.
+      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
+        https://developer.bolt.eu/stores/main/.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Partner acknowledges the event.
+  sendProviderStatus:
+    post:
+      operationId: webhook-sendProviderStatus
+      summary: Bolt notifies the partner-hosted endpoint of provider (store) status changes.
+      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
+        https://developer.bolt.eu/stores/main/.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Partner acknowledges the event.
+  sendCourierDetails:
+    post:
+      operationId: webhook-sendCourierDetails
+      summary: Bolt sends courier details for an order to the partner-hosted endpoint.
+      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
+        https://developer.bolt.eu/stores/main/.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Partner acknowledges the event.
+  courierPickedUpOrder:
+    post:
+      operationId: webhook-courierPickedUpOrder
+      summary: Bolt notifies the partner-hosted endpoint that the courier picked up the order.
+      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
+        https://developer.bolt.eu/stores/main/.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Partner acknowledges the event.
+components:
+  securitySchemes:
+    boltHmacSignature:
+      type: apiKey
+      in: header
+      name: x-external-integrator-id
+      description: Partner-gated HMAC request signing. Every request carries the integrator ID in `x-external-integrator-id`
+        plus a `x-server-authorization-hmac-sha256` header containing the base64-encoded HMAC-SHA256 signature
+        of the raw payload, computed with a secret key issued by Bolt. Webhook calls from Bolt to the
+        partner authenticate with Basic auth or a partner-hosted identity server issuing bearer tokens.
+  schemas:
+    SummarizedRequest:
+      type: object
+      description: Request body summarized - see the official Bolt developer portal for the full documented
+        schema of each operation.
+      additionalProperties: true
+    SummarizedResponse:
+      type: object
+      description: Response body summarized - see the official Bolt developer portal for the full documented
+        schema of each operation.
+      additionalProperties: true
