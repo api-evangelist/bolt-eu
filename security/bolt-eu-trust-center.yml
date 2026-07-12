@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://bolt.eu/en/security/
+url: https://bolt.eu/en/security/
+certifications:
+- ISO 27001
+- PCI DSS
+- GDPR
+evidence:
+- source: https://bolt.eu/en/security/
+  keywords:
+  - iso 27001
+  - pci dss
+  - gdpr

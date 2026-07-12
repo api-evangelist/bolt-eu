@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bolt-eu-delivery-openapi.yml, openapi/bolt-eu-food-openapi.yml, openapi/bolt-eu-stores-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: boltHmacSignature
+  type: apiKey
+  in: header
+  parameter: x-external-integrator-id
+  description: Partner-gated HMAC request signing. Every request carries the integrator ID in
+    `x-external-integrator-id` plus a `x-server-authorization-hmac-sha256` header containing
+    the base64-encoded HMAC-SHA256 signature of the raw payload, computed with a secret key
+    issued by Bolt. Webhook calls from Bolt to the partner authenticate with Basic auth or a
+    partner-hosted identity server issuing bearer tokens.
+  sources:
+  - openapi/bolt-eu-delivery-openapi.yml
+  - openapi/bolt-eu-food-openapi.yml
+  - openapi/bolt-eu-stores-openapi.yml

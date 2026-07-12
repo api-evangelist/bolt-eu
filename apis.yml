@@ -114,6 +114,14 @@ apis:
     with approved fleet partners directly. No endpoints are modeled here because none
     are publicly documented.
 common:
+- type: TrustCenter
+  url: security/bolt-eu-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/bolt-eu-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/bolt-eu-domain-security.yml
+- type: Authentication
+  url: authentication/bolt-eu-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/bolteu
 - type: LinkedIn
