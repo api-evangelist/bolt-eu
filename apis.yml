@@ -114,6 +114,8 @@ apis:
     with approved fleet partners directly. No endpoints are modeled here because none
     are publicly documented.
 common:
+- type: AgenticAccess
+  url: agentic-access/bolt-eu-agentic-access.yml
 - type: TrustCenter
   url: security/bolt-eu-trust-center.yml
 - type: VulnerabilityDisclosure
