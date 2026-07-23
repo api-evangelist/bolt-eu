@@ -1,15 +1,8 @@
 openapi: 3.1.0
 info:
-  title: Bolt Food API
+  title: Bolt Delivery GenericClient API
   version: '1.0'
-  description: 'Partner API for restaurants integrating point-of-sale (POS) systems with the Bolt Food
-    delivery application - push and manage menus, accept, reject, and fulfill orders, manage dine-in orders
-    created by waiters, and control store availability. Bolt also calls partner-hosted webhooks for new
-    orders, cancellations, updates, provider status, courier details, and deductions. Access is partner-gated:
-    an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document
-    is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint
-    paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while
-    request and response schemas are summarized rather than reproduced in full.'
+  description: 'Combined delivery-provider POS surface covering both the restaurant (Bolt Food) and grocery (Bolt Market) sides of Bolt''s delivery platform - menu integration, order acceptance and fulfillment, dine-in orders, provider scheduling and availability, warehouse stock updates, and the full PIM suite for products, pricing, categories, options, and fees. Bolt also calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while request and response schemas are summarized rather than reproduced in full.'
   contact:
     url: https://developer.bolt.eu/
   license:
@@ -17,21 +10,20 @@ info:
     url: https://bolt.eu/en/legal/
   x-endpoints-modeled: false
   x-schemas-summarized: true
-  x-source: 'https://developer.bolt.eu/food/main/ (upstream spec: https://developer.bolt.eu/versions/98.0.0/docs/food/main.yaml)'
-externalDocs:
-  description: Bolt Food API reference on the Bolt developer portal
-  url: https://developer.bolt.eu/food/main/
+  x-source: 'https://developer.bolt.eu/delivery/main/ (upstream spec: https://developer.bolt.eu/versions/98.0.0/docs/delivery/main.yaml)'
 servers:
 - url: https://node.bolt.eu/delivery-provider-pos
   description: Production
 security:
 - boltHmacSignature: []
+tags:
+- name: GenericClient
 paths:
   /genericClient/pushMenu:
     post:
       operationId: genericClient-pushMenu
       summary: Push menu
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/pushMenu).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/pushMenu).
       requestBody:
         content:
           application/json:
@@ -44,11 +36,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/getMenu:
     post:
       operationId: genericClient-getMenu
       summary: Get menu
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/getMenu).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/getMenu).
       requestBody:
         content:
           application/json:
@@ -61,11 +55,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/updateMenuItemAvailability:
     post:
       operationId: genericClient-updateMenuItemAvailability
       summary: Update menu item availability
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/updateMenuItemAvailability).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/updateMenuItemAvailability).
       requestBody:
         content:
           application/json:
@@ -78,11 +74,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/acceptOrder:
     post:
       operationId: genericClient-acceptOrder
       summary: Accept order
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/acceptOrder).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/acceptOrder).
       requestBody:
         content:
           application/json:
@@ -95,11 +93,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/rejectOrder:
     post:
       operationId: genericClient-rejectOrder
       summary: Reject order
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/rejectOrder).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/rejectOrder).
       requestBody:
         content:
           application/json:
@@ -112,11 +112,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/markOrderAsReadyForPickup:
     post:
       operationId: genericClient-markOrderAsReadyForPickup
       summary: Mark order as ready for pickup
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/markOrderAsReadyForPickup).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/markOrderAsReadyForPickup).
       requestBody:
         content:
           application/json:
@@ -129,11 +131,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/markOrderAsPickedUp:
     post:
       operationId: genericClient-markOrderAsPickedUp
       summary: Mark order as picked up
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/markOrderAsPickedUp).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/markOrderAsPickedUp).
       requestBody:
         content:
           application/json:
@@ -146,11 +150,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/markOrderAsDelivered:
     post:
       operationId: genericClient-markOrderAsDelivered
       summary: Mark order as delivered
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/markOrderAsDelivered).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/markOrderAsDelivered).
       requestBody:
         content:
           application/json:
@@ -163,11 +169,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/waiter/createOrder:
     post:
       operationId: genericClient-waiter-createOrder
       summary: 'Dine-in (waiter): create order'
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/waiter/createOrder).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/waiter/createOrder).
       requestBody:
         content:
           application/json:
@@ -180,11 +188,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/waiter/finalizeOrder:
     post:
       operationId: genericClient-waiter-finalizeOrder
       summary: 'Dine-in (waiter): finalize order'
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/waiter/finalizeOrder).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/waiter/finalizeOrder).
       requestBody:
         content:
           application/json:
@@ -197,11 +207,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/startAcceptingOrders:
     post:
       operationId: genericClient-startAcceptingOrders
       summary: Start accepting orders
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/startAcceptingOrders).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/startAcceptingOrders).
       requestBody:
         content:
           application/json:
@@ -214,11 +226,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/pauseOrders:
     post:
       operationId: genericClient-pauseOrders
       summary: Pause orders
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/pauseOrders).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/pauseOrders).
       requestBody:
         content:
           application/json:
@@ -231,11 +245,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - GenericClient
   /genericClient/updateProviderSchedule:
     post:
       operationId: genericClient-updateProviderSchedule
       summary: Update provider schedule
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/genericClient/updateProviderSchedule).
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/updateProviderSchedule).
       requestBody:
         content:
           application/json:
@@ -248,11 +264,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
-  /pim/v1/option/upsert:
+      tags:
+      - GenericClient
+  /genericClient/updateMenuQuantity:
     post:
-      operationId: pim-v1-option-upsert
-      summary: 'PIM: option upsert'
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/pim/v1/option/upsert).
+      operationId: genericClient-updateMenuQuantity
+      summary: Update menu quantity
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/updateMenuQuantity).
       requestBody:
         content:
           application/json:
@@ -265,11 +283,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
-  /pim/v1/option/list:
+      tags:
+      - GenericClient
+  /genericClient/markOrderWithItemsAsReadyForPickUp:
     post:
-      operationId: pim-v1-option-list
-      summary: 'PIM: option list'
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/pim/v1/option/list).
+      operationId: genericClient-markOrderWithItemsAsReadyForPickUp
+      summary: Mark order with items as ready for pick up
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/markOrderWithItemsAsReadyForPickUp).
       requestBody:
         content:
           application/json:
@@ -282,11 +302,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
-  /pim/v1/optionGroup/upsert:
+      tags:
+      - GenericClient
+  /genericClient/v2/markOrderWithItemsAsReadyForPickup:
     post:
-      operationId: pim-v1-optionGroup-upsert
-      summary: 'PIM: option group upsert'
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/pim/v1/optionGroup/upsert).
+      operationId: genericClient-v2-markOrderWithItemsAsReadyForPickup
+      summary: Mark order with items as ready for pickup
+      description: Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/v2/markOrderWithItemsAsReadyForPickup).
       requestBody:
         content:
           application/json:
@@ -299,11 +321,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
-  /pim/v1/optionGroup/list:
+      tags:
+      - GenericClient
+  /genericClient/getOrderBasket:
     post:
-      operationId: pim-v1-optionGroup-list
-      summary: 'PIM: option group list'
-      description: Documented upstream at https://developer.bolt.eu/food/main/ (/pim/v1/optionGroup/list).
+      operationId: genericClient-getOrderBasket
+      summary: Get order basket
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/getOrderBasket).
       requestBody:
         content:
           application/json:
@@ -316,109 +340,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SummarizedResponse'
-webhooks:
-  sendNewOrder:
-    post:
-      operationId: webhook-sendNewOrder
-      summary: Bolt sends a new order to the partner-hosted endpoint for acceptance.
-      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
-        https://developer.bolt.eu/food/main/.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SummarizedRequest'
-      responses:
-        '200':
-          description: Partner acknowledges the event.
-  sendCancelOrder:
-    post:
-      operationId: webhook-sendCancelOrder
-      summary: Bolt notifies the partner-hosted endpoint that an order was cancelled.
-      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
-        https://developer.bolt.eu/food/main/.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SummarizedRequest'
-      responses:
-        '200':
-          description: Partner acknowledges the event.
-  sendOrderUpdate:
-    post:
-      operationId: webhook-sendOrderUpdate
-      summary: Bolt sends order state updates to the partner-hosted endpoint.
-      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
-        https://developer.bolt.eu/food/main/.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SummarizedRequest'
-      responses:
-        '200':
-          description: Partner acknowledges the event.
-  sendProviderStatus:
-    post:
-      operationId: webhook-sendProviderStatus
-      summary: Bolt notifies the partner-hosted endpoint of provider (store) status changes.
-      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
-        https://developer.bolt.eu/food/main/.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SummarizedRequest'
-      responses:
-        '200':
-          description: Partner acknowledges the event.
-  sendCourierDetails:
-    post:
-      operationId: webhook-sendCourierDetails
-      summary: Bolt sends courier details for an order to the partner-hosted endpoint.
-      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
-        https://developer.bolt.eu/food/main/.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SummarizedRequest'
-      responses:
-        '200':
-          description: Partner acknowledges the event.
-  sendDeductionEvent:
-    post:
-      operationId: webhook-sendDeductionEvent
-      summary: Bolt sends deduction (financial adjustment) events to the partner-hosted endpoint.
-      description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at
-        https://developer.bolt.eu/food/main/.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SummarizedRequest'
-      responses:
-        '200':
-          description: Partner acknowledges the event.
+      tags:
+      - GenericClient
 components:
+  schemas:
+    SummarizedRequest:
+      type: object
+      description: Request body summarized - see the official Bolt developer portal for the full documented schema of each operation.
+      additionalProperties: true
+    SummarizedResponse:
+      type: object
+      description: Response body summarized - see the official Bolt developer portal for the full documented schema of each operation.
+      additionalProperties: true
   securitySchemes:
     boltHmacSignature:
       type: apiKey
       in: header
       name: x-external-integrator-id
-      description: Partner-gated HMAC request signing. Every request carries the integrator ID in `x-external-integrator-id`
-        plus a `x-server-authorization-hmac-sha256` header containing the base64-encoded HMAC-SHA256 signature
-        of the raw payload, computed with a secret key issued by Bolt. Webhook calls from Bolt to the
-        partner authenticate with Basic auth or a partner-hosted identity server issuing bearer tokens.
-  schemas:
-    SummarizedRequest:
-      type: object
-      description: Request body summarized - see the official Bolt developer portal for the full documented
-        schema of each operation.
-      additionalProperties: true
-    SummarizedResponse:
-      type: object
-      description: Response body summarized - see the official Bolt developer portal for the full documented
-        schema of each operation.
-      additionalProperties: true
+      description: Partner-gated HMAC request signing. Every request carries the integrator ID in `x-external-integrator-id` plus a `x-server-authorization-hmac-sha256` header containing the base64-encoded HMAC-SHA256 signature of the raw payload, computed with a secret key issued by Bolt. Webhook calls from Bolt to the partner authenticate with Basic auth or a partner-hosted identity server issuing bearer tokens.
+externalDocs:
+  description: Bolt Delivery API reference on the Bolt developer portal
+  url: https://developer.bolt.eu/delivery/main/

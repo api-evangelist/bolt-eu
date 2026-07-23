@@ -1,0 +1,59 @@
+openapi: 3.1.0
+info:
+  title: Bolt Delivery GenericClient ValidateLoyaltyCard API
+  version: '1.0'
+  description: 'Combined delivery-provider POS surface covering both the restaurant (Bolt Food) and grocery (Bolt Market) sides of Bolt''s delivery platform - menu integration, order acceptance and fulfillment, dine-in orders, provider scheduling and availability, warehouse stock updates, and the full PIM suite for products, pricing, categories, options, and fees. Bolt also calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while request and response schemas are summarized rather than reproduced in full.'
+  contact:
+    url: https://developer.bolt.eu/
+  license:
+    name: Bolt Terms and Conditions
+    url: https://bolt.eu/en/legal/
+  x-endpoints-modeled: false
+  x-schemas-summarized: true
+  x-source: 'https://developer.bolt.eu/delivery/main/ (upstream spec: https://developer.bolt.eu/versions/98.0.0/docs/delivery/main.yaml)'
+servers:
+- url: https://node.bolt.eu/delivery-provider-pos
+  description: Production
+security:
+- boltHmacSignature: []
+tags:
+- name: ValidateLoyaltyCard
+paths:
+  /validateLoyaltyCard:
+    post:
+      operationId: validateLoyaltyCard
+      summary: Validate loyalty card
+      description: Documented upstream at https://developer.bolt.eu/stores/main/ (/validateLoyaltyCard).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizedRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizedResponse'
+      tags:
+      - ValidateLoyaltyCard
+components:
+  schemas:
+    SummarizedRequest:
+      type: object
+      description: Request body summarized - see the official Bolt developer portal for the full documented schema of each operation.
+      additionalProperties: true
+    SummarizedResponse:
+      type: object
+      description: Response body summarized - see the official Bolt developer portal for the full documented schema of each operation.
+      additionalProperties: true
+  securitySchemes:
+    boltHmacSignature:
+      type: apiKey
+      in: header
+      name: x-external-integrator-id
+      description: Partner-gated HMAC request signing. Every request carries the integrator ID in `x-external-integrator-id` plus a `x-server-authorization-hmac-sha256` header containing the base64-encoded HMAC-SHA256 signature of the raw payload, computed with a secret key issued by Bolt. Webhook calls from Bolt to the partner authenticate with Basic auth or a partner-hosted identity server issuing bearer tokens.
+externalDocs:
+  description: Bolt Delivery API reference on the Bolt developer portal
+  url: https://developer.bolt.eu/delivery/main/
