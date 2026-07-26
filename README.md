@@ -75,11 +75,6 @@ Combined delivery-provider surface covering both the restaurant (Bolt Food) and 
 - [OpenAPI](openapi/bolt-eu-delivery-openapi.yml)
 - [Postman Collection](collections/bolt-eu.postman_collection.json)
 
-### Bolt Fleet API
-
-Partner-gated fleet integration for companies operating driver fleets on the Bolt ride-hailing platform. Fleet owners generate API credentials (Client ID and Secret) under Settings > API in the Bolt Fleet Portal, but Bolt publishes no public endpoint documentation - no endpoints are modeled here.
-
-- **Human URL:** [https://fleets.bolt.eu/](https://fleets.bolt.eu/)
 
 #### Properties
 
