@@ -1,0 +1,18 @@
+{
+  "provider": "bolt-eu",
+  "sources": [
+    "bolt-eu-genericclient-api-openapi.yml",
+    "bolt-eu-pim-api-openapi.yml",
+    "bolt-eu-validateloyaltycard-api-openapi.yml"
+  ],
+  "outputs": [
+    "bolt-eu-genericclient-api-openapi.yml",
+    "bolt-eu-pim-api-openapi.yml",
+    "bolt-eu-validateloyaltycard-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
