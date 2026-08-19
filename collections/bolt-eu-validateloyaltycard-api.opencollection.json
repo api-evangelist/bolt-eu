@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bolt Delivery GenericClient ValidateLoyaltyCard API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-external-integrator-id",
+      "value": "{{x-external-integrator-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ValidateLoyaltyCard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate loyalty card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/validateLoyaltyCard",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/stores/main/ (/validateLoyaltyCard)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

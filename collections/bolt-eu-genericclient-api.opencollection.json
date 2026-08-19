@@ -1,0 +1,281 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bolt Delivery GenericClient API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-external-integrator-id",
+      "value": "{{x-external-integrator-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GenericClient",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Push menu",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/pushMenu",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/pushMenu)."
+        },
+        {
+          "info": {
+            "name": "Get menu",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/getMenu",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/getMenu)."
+        },
+        {
+          "info": {
+            "name": "Update menu item availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/updateMenuItemAvailability",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/updateMenuItemAvailability)."
+        },
+        {
+          "info": {
+            "name": "Accept order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/acceptOrder",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/acceptOrder)."
+        },
+        {
+          "info": {
+            "name": "Reject order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/rejectOrder",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/rejectOrder)."
+        },
+        {
+          "info": {
+            "name": "Mark order as ready for pickup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/markOrderAsReadyForPickup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/markOrderAsReadyForPickup)."
+        },
+        {
+          "info": {
+            "name": "Mark order as picked up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/markOrderAsPickedUp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/markOrderAsPickedUp)."
+        },
+        {
+          "info": {
+            "name": "Mark order as delivered",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/markOrderAsDelivered",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/markOrderAsDelivered)."
+        },
+        {
+          "info": {
+            "name": "Dine-in (waiter): create order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/waiter/createOrder",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/waiter/createOrder)."
+        },
+        {
+          "info": {
+            "name": "Dine-in (waiter): finalize order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/waiter/finalizeOrder",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/waiter/finalizeOrder)."
+        },
+        {
+          "info": {
+            "name": "Start accepting orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/startAcceptingOrders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/startAcceptingOrders)."
+        },
+        {
+          "info": {
+            "name": "Pause orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/pauseOrders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/pauseOrders)."
+        },
+        {
+          "info": {
+            "name": "Update provider schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/updateProviderSchedule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/updateProviderSchedule)."
+        },
+        {
+          "info": {
+            "name": "Update menu quantity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/updateMenuQuantity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/updateMenuQuantity)."
+        },
+        {
+          "info": {
+            "name": "Mark order with items as ready for pick up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/markOrderWithItemsAsReadyForPickUp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/markOrderWithItemsAsReadyForPickUp)."
+        },
+        {
+          "info": {
+            "name": "Mark order with items as ready for pickup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/v2/markOrderWithItemsAsReadyForPickup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/genericClient/v2/markOrderWithItemsAsReadyForPickup)."
+        },
+        {
+          "info": {
+            "name": "Get order basket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/genericClient/getOrderBasket",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/stores/main/ (/genericClient/getOrderBasket)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

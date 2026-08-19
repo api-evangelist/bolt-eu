@@ -1,0 +1,431 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bolt Delivery GenericClient Pim API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-external-integrator-id",
+      "value": "{{x-external-integrator-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pim",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PIM: products import create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/products/import/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/products/import/create)."
+        },
+        {
+          "info": {
+            "name": "PIM: products import edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/products/import/edit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/products/import/edit)."
+        },
+        {
+          "info": {
+            "name": "PIM: products import status retrieve",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/products/import/status/retrieve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/products/import/status/retrieve)."
+        },
+        {
+          "info": {
+            "name": "PIM: products import apply",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/products/import/apply",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/products/import/apply)."
+        },
+        {
+          "info": {
+            "name": "PIM: products import cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/products/import/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/products/import/cancel)."
+        },
+        {
+          "info": {
+            "name": "PIM: timetable create in batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/timetable/createInBatch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/timetable/createInBatch)."
+        },
+        {
+          "info": {
+            "name": "PIM: timetable list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/timetable/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/timetable/list)."
+        },
+        {
+          "info": {
+            "name": "PIM: products delist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/products/delist",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/products/delist)."
+        },
+        {
+          "info": {
+            "name": "PIM: menu drafts create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/menu/drafts/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/menu/drafts/create)."
+        },
+        {
+          "info": {
+            "name": "PIM: menu drafts state retrieve",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/menu/drafts/state/retrieve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/menu/drafts/state/retrieve)."
+        },
+        {
+          "info": {
+            "name": "PIM: menu drafts reject",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/menu/drafts/reject",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/menu/drafts/reject)."
+        },
+        {
+          "info": {
+            "name": "PIM: menu drafts publish",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/menu/drafts/publish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/menu/drafts/publish)."
+        },
+        {
+          "info": {
+            "name": "PIM: menu publish list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/menu/publish/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/menu/publish/list)."
+        },
+        {
+          "info": {
+            "name": "PIM: menu publish cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/menu/publish/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/menu/publish/cancel)."
+        },
+        {
+          "info": {
+            "name": "PIM: products prices import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/products/prices/import",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/products/prices/import)."
+        },
+        {
+          "info": {
+            "name": "PIM: products discount prices import",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/products/discount/prices/import",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/products/discount/prices/import)."
+        },
+        {
+          "info": {
+            "name": "PIM: layout set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/layout/set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/layout/set)."
+        },
+        {
+          "info": {
+            "name": "PIM: category tree get",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/categoryTree/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/categoryTree/get)."
+        },
+        {
+          "info": {
+            "name": "PIM: category tree set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/categoryTree/set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/categoryTree/set)."
+        },
+        {
+          "info": {
+            "name": "PIM: category rearrange",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/category/rearrange",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/category/rearrange)."
+        },
+        {
+          "info": {
+            "name": "PIM: category products set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/category/products/set",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/category/products/set)."
+        },
+        {
+          "info": {
+            "name": "PIM: option upsert",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/option/upsert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/option/upsert)."
+        },
+        {
+          "info": {
+            "name": "PIM: option list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/option/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/option/list)."
+        },
+        {
+          "info": {
+            "name": "PIM: option group upsert",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/optionGroup/upsert",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/optionGroup/upsert)."
+        },
+        {
+          "info": {
+            "name": "PIM: option group list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/optionGroup/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/optionGroup/list)."
+        },
+        {
+          "info": {
+            "name": "PIM: fee list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/fee/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/fee/list)."
+        },
+        {
+          "info": {
+            "name": "PIM: fee update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://node.bolt.eu/delivery-provider-pos/pim/v1/fee/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Documented upstream at https://developer.bolt.eu/delivery/main/ (/pim/v1/fee/update)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

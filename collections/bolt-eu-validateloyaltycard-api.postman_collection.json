@@ -1,0 +1,148 @@
+{
+  "item": [
+    {
+      "id": "62a8ae0c-4227-420e-aba5-8e733d3a44d2",
+      "name": "ValidateLoyaltyCard",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "acb77637-ebdb-4afe-b4aa-1a54276ed79e",
+          "name": "Validate loyalty card",
+          "request": {
+            "name": "Validate loyalty card",
+            "description": {
+              "content": "Documented upstream at https://developer.bolt.eu/stores/main/ (/validateLoyaltyCard).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "validateLoyaltyCard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 9923,\n  \"key_1\": 9585,\n  \"key_2\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b7bb3cd-fa00-4474-9066-f770bd4451ea",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validateLoyaltyCard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-external-integrator-id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 9909.283996785121\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 6435.230372650341\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://node.bolt.eu/delivery-provider-pos",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-external-integrator-id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c255d72d-bc64-44fb-bfe6-a94b71f6f3d5",
+    "name": "Bolt Delivery GenericClient ValidateLoyaltyCard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Combined delivery-provider POS surface covering both the restaurant (Bolt Food) and grocery (Bolt Market) sides of Bolt's delivery platform - menu integration, order acceptance and fulfillment, dine-in orders, provider scheduling and availability, warehouse stock updates, and the full PIM suite for products, pricing, categories, options, and fees. Bolt also calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while request and response schemas are summarized rather than reproduced in full.",
+      "type": "text/plain"
+    }
+  }
+}
