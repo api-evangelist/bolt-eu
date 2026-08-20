@@ -54,6 +54,8 @@ apis:
     humanURL: https://developer.bolt.eu/food/main/
     baseURL: https://node.bolt.eu/delivery-provider-pos
     tags:
+      - PIM
+    tags_raw:
       - Pim
     properties:
       - type: OpenAPI
