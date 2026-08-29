@@ -1,0 +1,24 @@
+slug: bolt-eu
+provider: Bolt
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: ValidateLoyaltyCard
+  spec_file: bolt-eu-validateloyaltycard-api-openapi.yml
+  capability_id: BC-420.40
+  capability_id_l1: BC-420
+  capability_name: Loyalty & Retention Management
+  confidence: 0.7
+  evidence: POST /validateLoyaltyCard  validateLoyaltyCard  Validate loyalty card
+  reason: The operation validates a customer loyalty card as part of the retail/grocery partner flow,
+    which realises loyalty programme operation. Single thin operation, so moderate confidence.
