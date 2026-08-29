@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Bolt Delivery GenericClient ValidateLoyaltyCard API
+  title: Bolt Stores Validate Loyalty Card API
   version: '1.0'
-  description: 'Combined delivery-provider POS surface covering both the restaurant (Bolt Food) and grocery (Bolt Market) sides of Bolt''s delivery platform - menu integration, order acceptance and fulfillment, dine-in orders, provider scheduling and availability, warehouse stock updates, and the full PIM suite for products, pricing, categories, options, and fees. Bolt also calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while request and response schemas are summarized rather than reproduced in full.'
+  description: 'Partner API for grocery and retail stores integrating warehouses and product information management (PIM) systems with Bolt Food / Bolt Market delivery - import and edit product catalogs, prices, and discount price lists, manage category trees, section layouts, options, fees, timetables, menu drafts and publishing, update stock quantities, and fulfill orders picked by item. Bolt also calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while request and response schemas are summarized rather than reproduced in full.'
   contact:
     url: https://developer.bolt.eu/
   license:
@@ -10,7 +10,7 @@ info:
     url: https://bolt.eu/en/legal/
   x-endpoints-modeled: false
   x-schemas-summarized: true
-  x-source: 'https://developer.bolt.eu/delivery/main/ (upstream spec: https://developer.bolt.eu/versions/98.0.0/docs/delivery/main.yaml)'
+  x-source: 'https://developer.bolt.eu/stores/main/ (upstream spec: https://developer.bolt.eu/versions/98.0.0/docs/stores/main.yaml)'
 servers:
 - url: https://node.bolt.eu/delivery-provider-pos
   description: Production
@@ -55,5 +55,5 @@ components:
       name: x-external-integrator-id
       description: Partner-gated HMAC request signing. Every request carries the integrator ID in `x-external-integrator-id` plus a `x-server-authorization-hmac-sha256` header containing the base64-encoded HMAC-SHA256 signature of the raw payload, computed with a secret key issued by Bolt. Webhook calls from Bolt to the partner authenticate with Basic auth or a partner-hosted identity server issuing bearer tokens.
 externalDocs:
-  description: Bolt Delivery API reference on the Bolt developer portal
-  url: https://developer.bolt.eu/delivery/main/
+  description: Bolt Stores API reference on the Bolt developer portal
+  url: https://developer.bolt.eu/stores/main/

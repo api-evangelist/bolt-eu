@@ -42,62 +42,92 @@ created: '2026-07-11'
 modified: '2026-07-25'
 specificationVersion: '0.23'
 apis:
-  - aid: bolt-eu:bolt-eu-genericclient-api
-    name: Bolt GenericClient API
-    description: The GenericClient API from Bolt — 17 operation(s) for genericclient.
-    humanURL: https://developer.bolt.eu/food/main/
-    baseURL: https://node.bolt.eu/delivery-provider-pos
-    tags:
-      - GenericClient
-    properties:
-      - type: OpenAPI
-        url: openapi/bolt-eu-genericclient-api-openapi.yml
-      - type: Documentation
-        url: https://developer.bolt.eu/food/main/
-      - type: PostmanCollection
-        url: collections/bolt-eu.postman_collection.json
-      - type: Documentation
-        url: https://developer.bolt.eu/stores/main/
-      - type: Documentation
-        url: https://developer.bolt.eu/delivery/main/
-  - aid: bolt-eu:bolt-eu-pim-api
-    name: Bolt Pim API
-    description: The Pim API from Bolt — 27 operation(s) for pim.
-    humanURL: https://developer.bolt.eu/food/main/
-    baseURL: https://node.bolt.eu/delivery-provider-pos
-    tags:
-      - PIM
-    tags_raw:
-      - Pim
-    properties:
-      - type: OpenAPI
-        url: openapi/bolt-eu-pim-api-openapi.yml
-      - type: Documentation
-        url: https://developer.bolt.eu/food/main/
-      - type: PostmanCollection
-        url: collections/bolt-eu.postman_collection.json
-      - type: Documentation
-        url: https://developer.bolt.eu/stores/main/
-      - type: Documentation
-        url: https://developer.bolt.eu/delivery/main/
-  - aid: bolt-eu:bolt-eu-validateloyaltycard-api
-    name: Bolt ValidateLoyaltyCard API
-    description: The ValidateLoyaltyCard API from Bolt — 1 operation(s) for validateloyaltycard.
-    humanURL: https://developer.bolt.eu/food/main/
-    baseURL: https://node.bolt.eu/delivery-provider-pos
-    tags:
-      - ValidateLoyaltyCard
-    properties:
-      - type: OpenAPI
-        url: openapi/bolt-eu-validateloyaltycard-api-openapi.yml
-      - type: Documentation
-        url: https://developer.bolt.eu/food/main/
-      - type: PostmanCollection
-        url: collections/bolt-eu.postman_collection.json
-      - type: Documentation
-        url: https://developer.bolt.eu/stores/main/
-      - type: Documentation
-        url: https://developer.bolt.eu/delivery/main/
+- aid: bolt-eu:bolt-eu-genericclient-api
+  name: Bolt GenericClient API
+  description: The GenericClient API from Bolt — 17 operation(s) for genericclient.
+  humanURL: https://developer.bolt.eu/food/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  tags:
+  - GenericClient
+  properties:
+  - type: OpenAPI
+    url: openapi/bolt-eu-genericclient-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bolt.eu/food/main/
+  - type: PostmanCollection
+    url: collections/bolt-eu.postman_collection.json
+  - type: Documentation
+    url: https://developer.bolt.eu/stores/main/
+  - type: Documentation
+    url: https://developer.bolt.eu/delivery/main/
+- aid: bolt-eu:bolt-eu-pim-api
+  name: Bolt Pim API
+  description: The Pim API from Bolt — 27 operation(s) for pim.
+  humanURL: https://developer.bolt.eu/food/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  tags:
+  - PIM
+  tags_raw:
+  - Pim
+  properties:
+  - type: OpenAPI
+    url: openapi/bolt-eu-pim-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bolt.eu/food/main/
+  - type: PostmanCollection
+    url: collections/bolt-eu.postman_collection.json
+  - type: Documentation
+    url: https://developer.bolt.eu/stores/main/
+  - type: Documentation
+    url: https://developer.bolt.eu/delivery/main/
+- aid: bolt-eu:bolt-eu-validateloyaltycard-api
+  name: Bolt ValidateLoyaltyCard API
+  description: The ValidateLoyaltyCard API from Bolt — 1 operation(s) for validateloyaltycard.
+  humanURL: https://developer.bolt.eu/food/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  tags:
+  - ValidateLoyaltyCard
+  properties:
+  - type: OpenAPI
+    url: openapi/bolt-eu-validateloyaltycard-api-openapi.yml
+  - type: Documentation
+    url: https://developer.bolt.eu/food/main/
+  - type: PostmanCollection
+    url: collections/bolt-eu.postman_collection.json
+  - type: Documentation
+    url: https://developer.bolt.eu/stores/main/
+  - type: Documentation
+    url: https://developer.bolt.eu/delivery/main/
+- aid: bolt-eu:bolt-eu-bolt-delivery-api-api
+  name: Bolt Bolt Delivery API
+  description: The Bolt Delivery API API from Bolt — 0 operation(s) for bolt delivery api.
+  humanURL: https://developer.bolt.eu/food/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  tags:
+  - Bolt Delivery API
+  properties:
+  - type: OpenAPI
+    url: openapi/bolt-eu-bolt-delivery-api-api-openapi.yml
+- aid: bolt-eu:bolt-eu-bolt-food-api-api
+  name: Bolt Bolt Food API
+  description: The Bolt Food API API from Bolt — 0 operation(s) for bolt food api.
+  humanURL: https://developer.bolt.eu/food/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  tags:
+  - Bolt Food API
+  properties:
+  - type: OpenAPI
+    url: openapi/bolt-eu-bolt-food-api-api-openapi.yml
+- aid: bolt-eu:bolt-eu-bolt-stores-api-api
+  name: Bolt Bolt Stores API
+  description: The Bolt Stores API API from Bolt — 0 operation(s) for bolt stores api.
+  humanURL: https://developer.bolt.eu/food/main/
+  baseURL: https://node.bolt.eu/delivery-provider-pos
+  tags:
+  - Bolt Stores API
+  properties:
+  - type: OpenAPI
+    url: openapi/bolt-eu-bolt-stores-api-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/bolt-eu-agentic-access.yml

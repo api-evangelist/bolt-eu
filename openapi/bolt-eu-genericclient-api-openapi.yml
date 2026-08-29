@@ -1,8 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Bolt Delivery GenericClient API
+  title: Bolt Eu Generic Client API
   version: '1.0'
-  description: 'Combined delivery-provider POS surface covering both the restaurant (Bolt Food) and grocery (Bolt Market) sides of Bolt''s delivery platform - menu integration, order acceptance and fulfillment, dine-in orders, provider scheduling and availability, warehouse stock updates, and the full PIM suite for products, pricing, categories, options, and fees. Bolt also calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while request and response schemas are summarized rather than reproduced in full.'
   contact:
     url: https://developer.bolt.eu/
   license:
@@ -10,7 +9,9 @@ info:
     url: https://bolt.eu/en/legal/
   x-endpoints-modeled: false
   x-schemas-summarized: true
-  x-source: 'https://developer.bolt.eu/delivery/main/ (upstream spec: https://developer.bolt.eu/versions/98.0.0/docs/delivery/main.yaml)'
+  x-refined-note:
+  - x-source differs across the merged source definitions and was not carried
+  description: 'Operations tagged GenericClient across 3 of this provider''s published API definitions: bolt-eu-delivery-openapi.yml, bolt-eu-food-openapi.yml, bolt-eu-stores-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://node.bolt.eu/delivery-provider-pos
   description: Production
@@ -38,6 +39,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/getMenu:
     post:
       operationId: genericClient-getMenu
@@ -57,6 +61,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/updateMenuItemAvailability:
     post:
       operationId: genericClient-updateMenuItemAvailability
@@ -76,6 +83,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/acceptOrder:
     post:
       operationId: genericClient-acceptOrder
@@ -95,6 +105,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/rejectOrder:
     post:
       operationId: genericClient-rejectOrder
@@ -114,6 +127,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/markOrderAsReadyForPickup:
     post:
       operationId: genericClient-markOrderAsReadyForPickup
@@ -133,6 +149,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/markOrderAsPickedUp:
     post:
       operationId: genericClient-markOrderAsPickedUp
@@ -152,6 +171,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/markOrderAsDelivered:
     post:
       operationId: genericClient-markOrderAsDelivered
@@ -171,6 +193,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/waiter/createOrder:
     post:
       operationId: genericClient-waiter-createOrder
@@ -190,6 +215,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/waiter/finalizeOrder:
     post:
       operationId: genericClient-waiter-finalizeOrder
@@ -209,6 +237,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/startAcceptingOrders:
     post:
       operationId: genericClient-startAcceptingOrders
@@ -228,6 +259,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/pauseOrders:
     post:
       operationId: genericClient-pauseOrders
@@ -247,6 +281,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/updateProviderSchedule:
     post:
       operationId: genericClient-updateProviderSchedule
@@ -266,6 +303,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/updateMenuQuantity:
     post:
       operationId: genericClient-updateMenuQuantity
@@ -285,6 +325,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/markOrderWithItemsAsReadyForPickUp:
     post:
       operationId: genericClient-markOrderWithItemsAsReadyForPickUp
@@ -304,6 +347,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/v2/markOrderWithItemsAsReadyForPickup:
     post:
       operationId: genericClient-v2-markOrderWithItemsAsReadyForPickup
@@ -323,6 +369,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
   /genericClient/getOrderBasket:
     post:
       operationId: genericClient-getOrderBasket
@@ -342,6 +391,9 @@ paths:
                 $ref: '#/components/schemas/SummarizedResponse'
       tags:
       - GenericClient
+    servers:
+    - url: https://node.bolt.eu/delivery-provider-pos
+      description: Production
 components:
   schemas:
     SummarizedRequest:
@@ -358,6 +410,7 @@ components:
       in: header
       name: x-external-integrator-id
       description: Partner-gated HMAC request signing. Every request carries the integrator ID in `x-external-integrator-id` plus a `x-server-authorization-hmac-sha256` header containing the base64-encoded HMAC-SHA256 signature of the raw payload, computed with a secret key issued by Bolt. Webhook calls from Bolt to the partner authenticate with Basic auth or a partner-hosted identity server issuing bearer tokens.
-externalDocs:
-  description: Bolt Delivery API reference on the Bolt developer portal
-  url: https://developer.bolt.eu/delivery/main/
+x-refined-from:
+- bolt-eu-delivery-openapi.yml
+- bolt-eu-food-openapi.yml
+- bolt-eu-stores-openapi.yml
