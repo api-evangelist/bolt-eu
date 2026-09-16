@@ -2,7 +2,14 @@ aid: bolt-eu
 url: https://raw.githubusercontent.com/api-evangelist/bolt-eu/refs/heads/main/apis.yml
 name: Bolt
 kind: company
-description: Bolt (bolt.eu) is the Estonian mobility super-app operating ride-hailing, ride booking, scooter and e-bike rentals, car-sharing, and food and grocery delivery across 50+ countries in Europe and Africa. This is NOT Bolt the US checkout/payments company (bolt.com). Bolt does not offer a public ride-booking API - the company states it has no public or private APIs for ride-hailing, and business ride booking happens through the Ride Booker web tool and private travel-platform partnerships. Its documented developer surface at developer.bolt.eu is partner-gated and covers the delivery side of the platform - Food, Stores, and Delivery APIs for POS, menu, order, warehouse, and PIM integration - plus a fleet API whose credentials are issued in the Fleet Portal but whose endpoints are not publicly documented.
+description: Bolt (bolt.eu) is the Estonian mobility super-app operating ride-hailing, ride booking, scooter
+  and e-bike rentals, car-sharing, and food and grocery delivery across 50+ countries in Europe and Africa.
+  This is NOT Bolt the US checkout/payments company (bolt.com). Bolt does not offer a public ride-booking
+  API - the company states it has no public or private APIs for ride-hailing, and business ride booking
+  happens through the Ride Booker web tool and private travel-platform partnerships. Its documented developer
+  surface at developer.bolt.eu is partner-gated and covers the delivery side of the platform - Food, Stores,
+  and Delivery APIs for POS, menu, order, warehouse, and PIM integration - plus a fleet API whose credentials
+  are issued in the Fleet Portal but whose endpoints are not publicly documented.
 deliveryModel:
   model: saas
   open_source: false
@@ -31,16 +38,16 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bolt-eu.png
 tags:
-  - Ride Booking
-  - Ride Hailing
-  - Mobility
-  - Transportation
-  - Food Delivery
-  - Micromobility
-  - Delivery
-  - Super App
+- Ride Booking
+- Ride Hailing
+- Mobility
+- Transportation
+- Food Delivery
+- Micromobility
+- Delivery
+- Super App
 created: '2026-07-11'
-modified: '2026-07-25'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: bolt-eu:bolt-eu-genericclient-api
@@ -67,7 +74,7 @@ apis:
   humanURL: https://developer.bolt.eu/food/main/
   baseURL: https://node.bolt.eu/delivery-provider-pos
   tags:
-  - PIM
+  - Product Information Management
   tags_raw:
   - Pim
   properties:
@@ -100,7 +107,7 @@ apis:
   - type: Documentation
     url: https://developer.bolt.eu/delivery/main/
 - aid: bolt-eu:bolt-eu-bolt-delivery-api-api
-  name: Bolt Bolt Delivery API
+  name: Bolt Delivery API
   description: The Bolt Delivery API API from Bolt — 0 operation(s) for bolt delivery api.
   humanURL: https://developer.bolt.eu/food/main/
   baseURL: https://node.bolt.eu/delivery-provider-pos
@@ -110,7 +117,7 @@ apis:
   - type: OpenAPI
     url: openapi/bolt-eu-bolt-delivery-api-api-openapi.yml
 - aid: bolt-eu:bolt-eu-bolt-food-api-api
-  name: Bolt Bolt Food API
+  name: Bolt Food API
   description: The Bolt Food API API from Bolt — 0 operation(s) for bolt food api.
   humanURL: https://developer.bolt.eu/food/main/
   baseURL: https://node.bolt.eu/delivery-provider-pos
@@ -120,7 +127,7 @@ apis:
   - type: OpenAPI
     url: openapi/bolt-eu-bolt-food-api-api-openapi.yml
 - aid: bolt-eu:bolt-eu-bolt-stores-api-api
-  name: Bolt Bolt Stores API
+  name: Bolt Stores API
   description: The Bolt Stores API API from Bolt — 0 operation(s) for bolt stores api.
   humanURL: https://developer.bolt.eu/food/main/
   baseURL: https://node.bolt.eu/delivery-provider-pos
@@ -130,33 +137,33 @@ apis:
   - type: OpenAPI
     url: openapi/bolt-eu-bolt-stores-api-api-openapi.yml
 common:
-  - type: CapabilityMap
-    url: capabilities/bolt-eu-capability-edges.yml
-    name: Bolt Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/bolt-eu-agentic-access.yml
-  - type: TrustCenter
-    url: security/bolt-eu-trust-center.yml
-  - type: VulnerabilityDisclosure
-    url: security/bolt-eu-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/bolt-eu-domain-security.yml
-  - type: Authentication
-    url: authentication/bolt-eu-authentication.yml
-  - type: GitHubOrganization
-    url: https://github.com/bolteu
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/bolt-eu
-  - type: Website
-    url: https://bolt.eu
-  - type: Documentation
-    url: https://developer.bolt.eu/
-  - type: Plans
-    url: plans/bolt-eu-plans-pricing.yml
-  - type: Blog
-    url: https://bolt.eu/en/blog/
-  - type: ProductPage
-    url: https://fleets.bolt.eu/
+- type: CapabilityMap
+  url: capabilities/bolt-eu-capability-edges.yml
+  name: Bolt Business Capability Map
+- type: AgenticAccess
+  url: agentic-access/bolt-eu-agentic-access.yml
+- type: TrustCenter
+  url: security/bolt-eu-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/bolt-eu-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/bolt-eu-domain-security.yml
+- type: Authentication
+  url: authentication/bolt-eu-authentication.yml
+- type: GitHubOrganization
+  url: https://github.com/bolteu
+- type: LinkedIn
+  url: https://www.linkedin.com/company/bolt-eu
+- type: Website
+  url: https://bolt.eu
+- type: Documentation
+  url: https://developer.bolt.eu/
+- type: Plans
+  url: plans/bolt-eu-plans-pricing.yml
+- type: Blog
+  url: https://bolt.eu/en/blog/
+- type: ProductPage
+  url: https://fleets.bolt.eu/
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
