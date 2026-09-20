@@ -11,8 +11,21 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 2
 edges:
+- tag: GenericClient
+  spec_file: bolt-eu-genericclient-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.72
+  evidence: '''Accept order'', ''Reject order'', ''Mark order as ready for pickup'', ''Mark order as picked
+    up'', ''Mark order as delivered'''
+  reason: 'The operations drive the merchant-side order lifecycle for Bolt Food/Market delivery: accepting,
+    rejecting and progressing orders through pickup and delivery, plus pausing/resuming order intake.
+    That is order capture and fulfilment orchestration. Menu-push operations muddy the picture slightly,
+    hence moderate confidence.'
+  recovered_from: vertical-agriculture-food-production-edges.json
 - tag: ValidateLoyaltyCard
   spec_file: bolt-eu-validateloyaltycard-api-openapi.yml
   capability_id: BC-420.40
