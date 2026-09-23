@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Bolt Stores Validate Loyalty Card API
   version: '1.0'
-  description: 'Partner API for grocery and retail stores integrating warehouses and product information management (PIM) systems with Bolt Food / Bolt Market delivery - import and edit product catalogs, prices, and discount price lists, manage category trees, section layouts, options, fees, timetables, menu drafts and publishing, update stock quantities, and fulfill orders picked by item. Bolt also calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while request and response schemas are summarized rather than reproduced in full.'
+  description: Partner API for grocery and retail stores integrating warehouses and product information management (PIM) systems with Bolt Food / Bolt Market delivery - import and edit product catalogs, prices, and discount price lists, manage category trees, section layouts, options, fees, timetables, menu drafts and publishing, update stock quantities, and fulfill orders picked by item.
   contact:
     url: https://developer.bolt.eu/
   license:
@@ -40,13 +40,13 @@ paths:
       - ValidateLoyaltyCard
 components:
   schemas:
-    SummarizedRequest:
-      type: object
-      description: Request body summarized - see the official Bolt developer portal for the full documented schema of each operation.
-      additionalProperties: true
     SummarizedResponse:
       type: object
       description: Response body summarized - see the official Bolt developer portal for the full documented schema of each operation.
+      additionalProperties: true
+    SummarizedRequest:
+      type: object
+      description: Request body summarized - see the official Bolt developer portal for the full documented schema of each operation.
       additionalProperties: true
   securitySchemes:
     boltHmacSignature:

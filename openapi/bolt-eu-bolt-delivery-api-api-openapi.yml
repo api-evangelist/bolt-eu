@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   title: Bolt Delivery API
   version: '1.0'
-  description: 'Combined delivery-provider POS surface covering both the restaurant (Bolt Food) and grocery (Bolt Market) sides of Bolt''s delivery platform - menu integration, order acceptance and fulfillment, dine-in orders, provider scheduling and availability, warehouse stock updates, and the full PIM suite for products, pricing, categories, options, and fees. Bolt also calls partner-hosted webhooks for order and courier lifecycle events. Access is partner-gated: an integrator ID and HMAC secret are issued by Bolt when a test account is created. This document is an API Evangelist summary of the official Redocly-published spec at developer.bolt.eu - the endpoint paths, methods, server, webhooks, and authentication are taken verbatim from the upstream spec, while request and response schemas are summarized rather than reproduced in full.'
+  description: Combined delivery-provider POS surface covering both the restaurant (Bolt Food) and grocery (Bolt Market) sides of Bolt's delivery platform - menu integration, order acceptance and fulfillment, dine-in orders, provider scheduling and availability, warehouse stock updates, and the full PIM suite for products, pricing, categories, options, and fees.
   contact:
     url: https://developer.bolt.eu/
   license:
@@ -23,7 +23,7 @@ webhooks:
   sendNewOrder:
     post:
       operationId: webhook-sendNewOrder
-      summary: Bolt sends a new order to the partner-hosted endpoint for acceptance.
+      summary: Bolt sends a new order to the partner-hosted endpoint for acceptance
       description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at https://developer.bolt.eu/delivery/main/.
       requestBody:
         content:
@@ -38,7 +38,7 @@ webhooks:
   sendCancelOrder:
     post:
       operationId: webhook-sendCancelOrder
-      summary: Bolt notifies the partner-hosted endpoint that an order was cancelled.
+      summary: Bolt notifies the partner-hosted endpoint that an order was cancelled
       description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at https://developer.bolt.eu/delivery/main/.
       requestBody:
         content:
@@ -53,7 +53,7 @@ webhooks:
   sendOrderUpdate:
     post:
       operationId: webhook-sendOrderUpdate
-      summary: Bolt sends order state updates to the partner-hosted endpoint.
+      summary: Bolt sends order state updates to the partner-hosted endpoint
       description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at https://developer.bolt.eu/delivery/main/.
       requestBody:
         content:
@@ -68,7 +68,7 @@ webhooks:
   sendProviderStatus:
     post:
       operationId: webhook-sendProviderStatus
-      summary: Bolt notifies the partner-hosted endpoint of provider (store) status changes.
+      summary: Bolt notifies the partner-hosted endpoint of provider (store) status changes
       description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at https://developer.bolt.eu/delivery/main/.
       requestBody:
         content:
@@ -83,7 +83,7 @@ webhooks:
   sendCourierDetails:
     post:
       operationId: webhook-sendCourierDetails
-      summary: Bolt sends courier details for an order to the partner-hosted endpoint.
+      summary: Bolt sends courier details for an order to the partner-hosted endpoint
       description: Outbound webhook - Bolt POSTs to a partner-hosted endpoint. Documented upstream at https://developer.bolt.eu/delivery/main/.
       requestBody:
         content:

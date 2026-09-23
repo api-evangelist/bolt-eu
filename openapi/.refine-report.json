@@ -146,9 +146,13 @@
     "bolt-eu-stores-openapi.yml: declared missing tag: Pim",
     "bolt-eu-stores-openapi.yml: declared missing tag: ValidateLoyaltyCard",
     "tag 'GenericClient' spans 3 source specs (bolt-eu-delivery-openapi.yml, bolt-eu-food-openapi.yml, bolt-eu-stores-openapi.yml): per-path servers applied",
-    "tag 'Pim' spans 3 source specs (bolt-eu-delivery-openapi.yml, bolt-eu-food-openapi.yml, bolt-eu-stores-openapi.yml): per-path servers applied"
+    "tag 'Pim' spans 3 source specs (bolt-eu-delivery-openapi.yml, bolt-eu-food-openapi.yml, bolt-eu-stores-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
+    "bolt-eu-bolt-delivery-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bolt-eu-bolt-food-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bolt-eu-bolt-stores-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "bolt-eu-genericclient-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "bolt-eu-pim-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "bolt-eu-validateloyaltycard-api-openapi.yml: previously refined output, superseded by openapi/_original/"
