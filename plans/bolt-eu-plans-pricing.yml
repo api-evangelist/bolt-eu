@@ -50,3 +50,28 @@ sources:
   note: Partner-gated developer portal; access enabled by Bolt Support.
 - url: https://fleets.bolt.eu/
   note: Fleet Portal where API credentials are generated.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: Bolt Food / Stores / Delivery partner integration
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Bolt Business (ride booking for companies)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Bolt Fleet Portal API
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
