@@ -396,13 +396,13 @@ paths:
       description: Production
 components:
   schemas:
-    SummarizedRequest:
-      type: object
-      description: Request body summarized - see the official Bolt developer portal for the full documented schema of each operation.
-      additionalProperties: true
     SummarizedResponse:
       type: object
       description: Response body summarized - see the official Bolt developer portal for the full documented schema of each operation.
+      additionalProperties: true
+    SummarizedRequest:
+      type: object
+      description: Request body summarized - see the official Bolt developer portal for the full documented schema of each operation.
       additionalProperties: true
   securitySchemes:
     boltHmacSignature:
