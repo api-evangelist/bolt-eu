@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/bolt-eu/integrations
 - https://zapier.com/apps/bolt/integrations
@@ -8,11 +8,77 @@ source:
 - https://monid.ai/tools/bolt-eu
 checked:
 - https://composio.dev/toolkits/bolt-eu
+- https://files.mobilitydatabase.org/feeds_v2.csv
+- https://github.com/MobilityData/gbfs/blob/master/systems.csv
+- https://maas-alliance.eu/
 - https://monid.ai/tools/bolt-eu
 - https://n8n.io/integrations/bolt-eu/
 - https://zapier.com/apps/bolt-eu/integrations
 - https://zapier.com/apps/bolt/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: GBFS (MobilityData systems.csv)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://mds.bolt.eu/gbfs/3/336/gbfs
+  category: GBFS shared-mobility feed
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: GBFS systems.csv (github.com/MobilityData/gbfs)
+    standard: GBFS (General Bikeshare Feed Specification)
+    spec_file: null
+    role: gbfs-system-operator
+    registered_name: Bolt Technology OÜ
+    register_id: BoltEU_Brussels
+    website: https://www.bolt.eu/
+    matched_domain: bolt.eu
+    matched_by: domain+verified
+    domain_source: operator website column
+    versions_supported: &id001
+    - '1.0'
+    - '2.3'
+    - '3.0'
+    systems_sample:
+    - BoltEU_Austin
+    - BoltEU_Brussels
+    - BoltEU_Liverpool
+    - BoltEU_Washington DC
+    - bolt_basel
+    - bolt_karlsruhe
+    signal_note: 'participation only: GBFS has no conformance register, so no certified_products; system counts,
+      cities and versions are context, never counted'
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
+- partner_name: GBFS (MobilityData systems.csv)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://mds.bolt.eu/gbfs/3/336/gbfs
+  category: GBFS shared-mobility feed
+  channel: standard-directory
+  relationship: compatible
+  shape: gbfs
+  evidence_kind: standard-register
+  degree: published
+  report_only: true
+  note: publishes a GBFS auto-discovery feed listed in MobilityData's systems.csv (no anchor repo)
+  contract_reference:
+    register: GBFS systems.csv (github.com/MobilityData/gbfs)
+    spec_file: null
+    standard: GBFS
+    role: gbfs-system-operator
+    registered_name: Bolt Technology OÜ
+    matched_domain: bolt.eu
+    versions_supported: *id001
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
 templates: []
