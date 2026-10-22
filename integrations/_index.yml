@@ -67,3 +67,32 @@
     detected: '2026-10-21'
   status: not-a-workflow
   arazzo: null
+- slug: bolt-eu-open-mobility-foundation-mds-registered-providers
+  label: Open Mobility Foundation MDS registered providers
+  partner_name: Open Mobility Foundation MDS registered providers
+  category: MDS provider registration
+  type: register
+  channel: standard-directory
+  evidence: https://raw.githubusercontent.com/openmobilityfoundation/mobility-data-specification/main/providers.csv
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Open Mobility Foundation MDS registered providers
+    standard: Mobility Data Specification (MDS)
+    spec_file: null
+    role: mds-provider
+    registrations:
+    - registered_name: Bolt Technology
+      mode: micromobility
+      provider_id: 7ea695ca-9de7-4b3b-9f3c-241b2045a1fe
+      matched_domain: bolt.eu
+      matched_by: domain+local-verified
+      mds_api_host: mds.bolt.eu
+      gbfs_api_host: mds.bolt.eu
+      evidence_url: https://github.com/openmobilityfoundation/mobility-data-specification/blob/main/providers.csv
+    signal_note: 'participation only: an OMF provider registration (provider_id issued); the OMF publishes no MDS
+      conformance certification'
+    detected_by: sweep-open-mobility-foundation-mds.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
