@@ -1,4 +1,4 @@
-# Bolt (bolt-eu)
+# Bolt
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,97 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bolt (bolt.eu) is the Estonian mobility super-app operating ride-hailing, ride booking, scooter and e-bike rentals, car-sharing, and food and grocery delivery across 50+ countries in Europe and Africa. This is **not** Bolt the US checkout/payments company (bolt.com).
+Bolt (bolt.eu) is the Estonian mobility super-app operating ride-hailing, ride booking, scooter and e-bike rentals, car-sharing, and food and grocery delivery across 50+ countries in Europe and Africa. This is NOT Bolt the US checkout/payments company (bolt.com). Bolt does not offer a public ride-booking API - the company states it has no public or private APIs for ride-hailing, and business ride booking happens through the Ride Booker web tool and private travel-platform partnerships. Its documented developer surface at developer.bolt.eu is partner-gated and covers the delivery side of the platform - Food, Stores, and Delivery APIs for POS, menu, order, warehouse, and PIM integration - plus a fleet API whose credentials are issued in the Fleet Portal but whose endpoints are not publicly documented.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bolt-eu/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bolt-eu/refs/heads/main/apis.yml)
+**Areas:** Ride Booking · Ride Hailing · Mobility · Transportation · Food Delivery · Micromobility · Delivery · Super App
 
-## Access Model - Read This First
+## Bolt on APIs.io
 
-If you came here looking for a **ride-booking API**: Bolt does not offer one. Bolt's own support documentation states, in answer to rider API requests, *"Unfortunately, we don't offer any public or private APIs at the moment."* Business ride booking happens through the [Ride Booker](https://bolt.eu/en/business/ride-booker/) web tool and private travel-platform partnerships (for example, corporate travel platforms that have integrated Bolt Business directly) - not through a public API surface.
+Everything profiled for Bolt is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bolt-eu/](https://apis.io/providers/bolt-eu/)** — or go straight to one of the APIs or properties below.
 
-What Bolt **does** document, at [developer.bolt.eu](https://developer.bolt.eu/), is the delivery side of the platform:
+### APIs (6)
 
-- **Bolt Food API** - restaurant POS integration (menus, orders, dine-in, availability)
-- **Bolt Stores API** - grocery/retail warehouse and PIM integration (products, prices, stock, categories)
-- **Bolt Delivery API** - the combined restaurant + grocery provider surface
+- [Bolt GenericClient API](https://apis.io/apis/bolt-eu/bolt-eu-genericclient-api/) — The GenericClient API from Bolt — 17 operation(s) for genericclient.
+- [Bolt Pim API](https://apis.io/apis/bolt-eu/bolt-eu-pim-api/) — The Pim API from Bolt — 27 operation(s) for pim.
+- [Bolt ValidateLoyaltyCard API](https://apis.io/apis/bolt-eu/bolt-eu-validateloyaltycard-api/) — The ValidateLoyaltyCard API from Bolt — 1 operation(s) for validateloyaltycard.
+- [Bolt Delivery API](https://apis.io/apis/bolt-eu/bolt-eu-bolt-delivery-api-api/) — The Bolt Delivery API API from Bolt — 0 operation(s) for bolt delivery api.
+- [Bolt Food API](https://apis.io/apis/bolt-eu/bolt-eu-bolt-food-api-api/) — The Bolt Food API API from Bolt — 0 operation(s) for bolt food api.
+- [Bolt Stores API](https://apis.io/apis/bolt-eu/bolt-eu-bolt-stores-api-api/) — The Bolt Stores API API from Bolt — 0 operation(s) for bolt stores api.
 
-All three are **partner-gated**: every request is HMAC-SHA256 signed with an integrator ID and secret that Bolt issues when a partner test account is created, and Bolt Support must enable access. The endpoint inventories in `openapi/` are taken verbatim from Bolt's official Redocly specs; request/response schemas are summarized rather than reproduced in full (marked `x-schemas-summarized: true`).
+### Published properties
 
-A **Fleet API** also exists for companies operating driver fleets - credentials (Client ID and Secret) are generated under Settings > API in the [Fleet Portal](https://fleets.bolt.eu/) - but its endpoints are not publicly documented, so no endpoints are modeled for it here.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Tags
+#### Agentic access (1)
 
-- Ride Booking
-- Ride Hailing
-- Mobility
-- Transportation
-- Food Delivery
-- Micromobility
-- Delivery
-- Super App
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Timestamps
+- [Bolt Eu Agentic Access](https://apis.io/agentic-access/bolt-eu/bolt-eu-agentic-access/)
 
-- **Created:** 2026-07-11
-- **Modified:** 2026-07-11
+#### Collections (3)
 
-## APIs
+Postman and Open Collection request collections.
 
-### Bolt Food API
+- [Bolt Delivery GenericClient API](https://apis.io/collections/bolt-eu/open-bolt-eu-genericclient-api/)
+- [Bolt Delivery GenericClient Pim API](https://apis.io/collections/bolt-eu/open-bolt-eu-pim-api/)
+- [Bolt Delivery GenericClient ValidateLoyaltyCard API](https://apis.io/collections/bolt-eu/open-bolt-eu-validateloyaltycard-api/)
 
-Partner-gated API for restaurants integrating point-of-sale systems with the Bolt Food delivery application - push and manage menus, accept, reject, and fulfill orders, handle dine-in orders created by waiters, and control store availability. Bolt calls partner-hosted webhooks for order, courier, and deduction events.
+#### Security (4)
 
-- **Human URL:** [https://developer.bolt.eu/food/main/](https://developer.bolt.eu/food/main/)
-- **Base URL:** `https://node.bolt.eu/delivery-provider-pos`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Bolt Eu Authentication](https://apis.io/security/bolt-eu/bolt-eu-authentication/)
+- [Bolt Eu Domain Security](https://apis.io/security/bolt-eu/bolt-eu-domain-security/)
+- [Bolt Eu Trust Center](https://apis.io/security/bolt-eu/bolt-eu-trust-center/)
+- [Bolt Eu Vulnerability Disclosure](https://apis.io/security/bolt-eu/bolt-eu-vulnerability-disclosure/)
 
-- [Documentation](https://developer.bolt.eu/food/main/)
-- [OpenAPI](openapi/bolt-eu-food-openapi.yml)
-- [Postman Collection](collections/bolt-eu.postman_collection.json) - Bolt's official collection, downloaded from the developer portal
+#### Plans and pricing (1)
 
-### Bolt Stores API
+Published plans, tiers and prices.
 
-Partner-gated API for grocery and retail stores integrating warehouses and PIM systems with Bolt Food / Bolt Market - import products, prices, and discount price lists, manage category trees, layouts, options, fees, timetables, and menu publishing, update stock, and fulfill orders picked by item. SFTP-based catalog upload is also offered as a simplified path.
+- [Bolt Eu Plans Pricing](https://apis.io/plans/bolt-eu/bolt-eu-plans-pricing/)
 
-- **Human URL:** [https://developer.bolt.eu/stores/main/](https://developer.bolt.eu/stores/main/)
-- **Base URL:** `https://node.bolt.eu/delivery-provider-pos`
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://developer.bolt.eu/stores/main/)
-- [OpenAPI](openapi/bolt-eu-stores-openapi.yml)
-- [Postman Collection](collections/bolt-eu.postman_collection.json)
-
-### Bolt Delivery API
-
-Combined delivery-provider surface covering both the restaurant (Bolt Food) and grocery (Bolt Market) sides of the platform - menu integration, order acceptance and fulfillment, dine-in orders, provider scheduling, warehouse stock, and the full PIM suite, with outbound webhooks for order and courier lifecycle events.
-
-- **Human URL:** [https://developer.bolt.eu/delivery/main/](https://developer.bolt.eu/delivery/main/)
-- **Base URL:** `https://node.bolt.eu/delivery-provider-pos`
-
-#### Properties
-
-- [Documentation](https://developer.bolt.eu/delivery/main/)
-- [OpenAPI](openapi/bolt-eu-delivery-openapi.yml)
-- [Postman Collection](collections/bolt-eu.postman_collection.json)
-
-
-#### Properties
-
-- [Portal](https://fleets.bolt.eu/)
-- [Documentation](https://bolt.eu/en/support/articles/360012344613/)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/bolteu)
-- [LinkedIn](https://www.linkedin.com/company/bolt-eu)
 - [Website](https://bolt.eu)
 - [Documentation](https://developer.bolt.eu/)
-- [Plans](plans/bolt-eu-plans-pricing.yml)
 - [Blog](https://bolt.eu/en/blog/)
+- [GitHub](https://github.com/bolteu)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 41.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 15.5 |
+| Access clarity | 15.8 |
+
+**Agent readiness 23.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bolt-eu/](https://apis.io/providers/bolt-eu/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bolt: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bolt-eu/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
